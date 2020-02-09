@@ -1,0 +1,254 @@
+<?php
+require "protect.php";
+$message = '';
+if (isset($_POST["names"])) {
+    require "connect.php";
+    extract($_POST);
+
+    }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<title>Drip n Dry</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="font.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
+  <a href="login.php" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a> 
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">ABOUT US</a> 
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">CONTACT</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding"><b>Drip n Dry</b></span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+  
+  <!-- Photo grid -->
+  <div class="w3-row w3-grayscale-min">
+    <div class="w3-quarter">
+      <img src="df.jpg" style="width:100%" onclick="onClick(this)" alt="Professional window cleaning">
+      <img src="vc.jpg" style="width:100%" onclick="onClick(this)" alt="Dust cleaning.">
+      <img src="bd.jpg" style="width:100%" onclick="onClick(this)" alt="Floor cleaning.">
+   </div>
+    
+   <div class="w3-quarter">
+      <img src="be.jpg" style="width:100%" onclick="onClick(this)" alt="United Cleaning services.">
+      <img src="bf.jpg" style="width:100%" onclick="onClick(this)" alt="Tile brush cleaning.">
+      <img src="sa.jpg" style="width:100%" onclick="onClick(this)" alt="Home Cleaning Services.">
+    </div>
+    
+    <div class="w3-quarter">
+      <img src="bx.jpg" style="width:100%" onclick="onClick(this)" alt="Carpet vaccum Cleaning.">
+      <img src="by.jpg" style="width:100%" onclick="onClick(this)" alt="Granite Cleaning.">
+      <img src="bz.jpg" style="width:100%" onclick="onClick(this)" alt="Office Carpet Cleaning.">
+    </div>
+
+    <div class="w3-quarter">
+      <img src="cf.jpg" style="width:100%" onclick="onClick(this)" alt="Conference Hall Cleaning.">
+      <img src="sd.jpg" style="width:100%" onclick="onClick(this)" alt="Stationary Arrangement.">
+      <img src="da.jpg" style="width:100%" onclick="onClick(this)" alt="Equipment Maintenance.">
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+  
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- About section -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+    <h4><b>About Us</b></h4>
+    <img src="logo.png" alt="Us" class="w3-image w3-padding-32" width="200" height="50">
+    <div class="w3-content w3-justify" style="max-width:600px">
+      <h4>What we do.</h4>
+      <p>Drip n Dry is a cleaning company that deals with the cleaning of Organization's Offices,conference halls,Stationary stores and also homes.We deal with 
+	  cleaning of carpets,cloak rooms,windows and floors.We have been in the industry since 2018 and still aiming at achieving the best
+	  output for our clients.<br>Our company has 200 employees 40 employees divided in the 5 major departments in the company.Each department contains 1 manager to assign tasks to the rest of the workers.
+	  <br>
+	  <list>
+	  <ol>House Keeping.</ol>
+	  <ol>Office Keeping.</ol>
+	  <ol>Compund Keeping.</ol>
+	  <ol>Garden Keeping.</ol>
+	  <ol>Cloak keeping.</ol>
+	  </list>
+      </p>
+      <p>dripndry@gmail.com</p>
+      <p>tel: +254706435618</p>
+      <hr class="w3-opacity">
+      <h4 class="w3-padding-16">Technical Skills</h4>
+      <p class="w3-wide">Cleaning</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:95%">95%</div>
+      </div>
+      <p class="w3-wide">Managing</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide">Organizing</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:80%">80%</div>
+      </div>
+     <!--<p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom w3-hover-black">Download Skils</button></p>-->
+      
+	  <hr class="w3-opacity">
+
+      <h4 class="w3-padding-16">How much we charge</h4>
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <ul class="w3-ul w3-white w3-center">
+            <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+            <li class="w3-padding-16">Cleaning</li>
+            <li class="w3-padding-16">Managing</li>
+            <li class="w3-padding-16">Vaccuming</li>
+            <li class="w3-padding-16">
+              <h2>Ksh 50,000</h2>
+              <span class="w3-opacity">per month</span>
+            </li>
+            <li class="w3-light-grey w3-padding-24">
+              <button class="w3-button w3-white w3-padding-large">Sign Up</button>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="w3-half">
+          <ul class="w3-ul w3-white w3-center">
+            <li class="w3-black w3-xlarge w3-padding-32">Pro</li>
+            <li class="w3-padding-16">Compound Keeping</li>
+            <li class="w3-padding-16">House Keeping</li>
+            <li class="w3-padding-16">Floor Keeping</li>
+            <li class="w3-padding-16">
+              <h2>Ksh 100,000</h2>
+              <span class="w3-opacity">per month</span>
+            </li>
+            <li class="w3-light-grey w3-padding-24">
+              <button class="w3-button w3-white w3-padding-large">Sign Up</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact section -->
+  <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+    <div class="w3-content" style="max-width:600px">
+      <h4 class="w3-center"><b>Contact Us</b></h4>
+      <p>Do you want us to clean for you? Fill out the form and fill us in with the details :) We love new people!</p>
+      
+	  <form role="form" method="post" action="site.html">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input w3-border" type="text" name="Name" required>
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input w3-border" type="text" name="Email" required>
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input w3-border" type="text" name="Message" required>
+        </div>
+        <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">  
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <h3>INFO</h3>
+        <p>We clean for all our customers with the best services and we also meet our customers demands without any restraints.</p>      
+      </div>
+    
+      <div class="w3-third">
+        <h3>BLOG POSTS</h3>
+        <ul class="w3-ul">
+          <li class="w3-padding-16 w3-hover-black">
+            <img src="sd.jpg" class="w3-left w3-margin-right" style="width:50px">
+            <span class="w3-large">Coaching</span><br>
+            <span>Always watch your environment.</span>
+          </li>
+          <li class="w3-padding-16 w3-hover-black">
+            <img src="da.jpg" class="w3-left w3-margin-right" style="width:50px">
+            <span class="w3-large">Positive</span><br>
+            <span>Always keeping you clean.</span>
+          </li> 
+        </ul>
+      </div>
+
+      <div class="w3-third">
+        <h3>POPULAR TAGS</h3>
+        <p>
+          <span class="w3-tag w3-black w3-margin-bottom">Clean</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Nairobi</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Kisumu</span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Nakuru</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Eldoret</span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Windows Keeping</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Windows</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Carpets</span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">House Management</span>  <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Laundry</span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Floors</span> 
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-24"></a></div>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
+
+
+</body>
+</html>
